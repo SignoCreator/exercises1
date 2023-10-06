@@ -1,4 +1,6 @@
 #include <iostream>
+#include <limits>
+
 using namespace std;
 
 /**
@@ -17,10 +19,18 @@ int main(){
     int a=0,b=0,temp;
 
     //INIZIALIZZAZIONE VARIABILI
-    cout<< "inserisci il primo numero :";
-    cin>> a;    
-    cout<< "inserisci il secondo numero :";
-    cin>> b;
+    cout<< "Inserisci il primo numero :";
+    while(!(cin>> a)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cout<< "Inserisci il secondo numero :";
+    while(!(cin>> b)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     cout<< "valori iniziali (a,b): ("<< a << "," << b << ")" << endl;
 
     //ALGORITMO

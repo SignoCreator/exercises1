@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 using namespace std;
 
@@ -15,13 +16,25 @@ using namespace std;
 int main(){
     //DICHIARAZIONE VARIABILI
     float a,b,c,temp;
-    //INIIZIALIZZAZIONE VARIABILI
-    cout<< "inserisci il primo carattere :";
-    cin>> a;    
-    cout<< "inserisci il secondo carattere :";
-    cin>> b;
+    //INIZIALIZZAZIONE VARIABILI
+    cout<< "Inserisci il primo numero :";
+    while(!(cin>> a)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cout<< "Inserisci il secondo numero :";
+    while(!(cin>> b)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     cout<< "inserisci il terzo carattere :";
-    cin>> c;
+    while(!(cin>> c)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 
     //ALGORITMO
     cout<< "valori iniziali (primo,secondo,terzo): ("<< a << "," << b <<  "," << c<<")" << endl;

@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <limits>
 /**
  * Questo programma chiede all'utente di inserire due numeri interi e calcola
  * la loro media.
@@ -16,10 +16,18 @@ int main(){
     //DICHIARAZIONE VARIABILI
     int a,b;
     //INIZIALIZZAZIONE VARIABILI
-    cout<< "inserisci primo numero:";
-    cin>> a;
-    cout<< "inserisci secondo numero:";
-    cin>> b;
+    cout<< "Inserisci il primo numero :";
+    while(!(cin>> a)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cout<< "Inserisci il secondo numero :";
+    while(!(cin>> b)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
     cout<< "media: " << (a + b)/2.0<< endl;
     return 0;
 }

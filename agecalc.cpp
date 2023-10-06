@@ -39,7 +39,7 @@ int main(){
         }
         //se l'input è corretto controllo se rispetta il campo d'esistenza
         else if(birthday > year || birthday < 1900){
-            cout << "Errore: l'anno di nascita deve essere un numero di quattro cifre e maggiore di 1900." << endl;
+            cout << "Errore: l'anno di nascita deve essere un numero di quattro cifre e compresa tra 1900 e "<< year << endl;
         }else if(birthday/1000 == 0 || birthday/10000 != 0){
             cout << "Errore: l'anno di nascita deve essere un numero di quattro cifre." << endl;
         }else{

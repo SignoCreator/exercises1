@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 
 /**
  * Questo programma chiede all'utente di inserire la base e l'altezza di un rettangolo e calcola
@@ -18,10 +19,18 @@ int main(){
     float base,altezza;
 
     //INIZIALIZZAZIONE VARIABILI
-    cout<< "inserisci base:";
-    cin>> base;
-    cout<< "inserisci altezza:";
-    cin>> altezza;
+    cout<< "Inserisci base :";
+    while(!(cin>> base)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    cout<< "Inserisci altezza :";
+    while(!(cin>> altezza)){
+        cout << "Per favore, inserisci un numero intero valido: ";
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 
     //ALGORITMO
     cout<< "area: "<< base * altezza << endl;

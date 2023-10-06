@@ -65,6 +65,7 @@ int main(){
     }
 
     //ALGORITMO ( vedi documentazione sopra )
+    cout << "Prima dello scambio: a = " << a << ", b = " << b << endl;
     a = a ^ b;
     b = a ^ b;
     a = a ^ b;

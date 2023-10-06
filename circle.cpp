@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <limits>
 using namespace std;
 #define PI 3.14
 
@@ -20,19 +20,25 @@ using namespace std;
 
 int main(){
     //DICHIARAZIONE VARIABILI
-    float r;
+    float r = -1;
+
     //INIZIALIZZAZIONE VARIABILI
-    do {
+    while (r < 0) {
         cout<< "inserisci raggio:";
         cin>> r;
-        if (r < 0) {
+        if (cin.fail()) {
+            cin.clear(); // resetta lo stato di cin
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // svuota il buffer di input
+            cout << "Errore: Devi inserire un numero." << endl;
+            r = -1; // resetta r per continuare il ciclo
+        } else if (r < 0) {
             cout << "Errore: Il raggio deve essere positivo." << endl;
         }
-    } while (r < 0);
+    }
+
     //ALGORITMO
     cout<<"circonferenza: "<< r*2 * PI<<endl;
     cout<<"area: "<< r*r * PI<<endl;
 
     return 0;
 }
-
